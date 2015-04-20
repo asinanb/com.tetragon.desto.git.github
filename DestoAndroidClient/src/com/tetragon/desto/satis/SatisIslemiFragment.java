@@ -17,7 +17,9 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputFilter;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -94,6 +96,103 @@ public class SatisIslemiFragment extends Fragment implements
 	}
 
 	private void addListeners(View view) {
+		toplamFiyatView.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				satisButton.setEnabled(false);
+				
+			}
+		});
+		nakitFiyatView.addTextChangedListener(new TextWatcher() {
+			public void afterTextChanged(android.text.Editable arg0) {
+				satisButton.setEnabled(false);
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+				
+			};
+		});
+		kkartiView.addTextChangedListener(new TextWatcher() {
+			public void afterTextChanged(android.text.Editable arg0) {
+				satisButton.setEnabled(false);
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+				
+			};
+		});
+		taksitSayisiView.addTextChangedListener(new TextWatcher() {
+			public void afterTextChanged(android.text.Editable arg0) {
+				satisButton.setEnabled(false);
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+				
+			};
+		});
+		taksitTlView.addTextChangedListener(new TextWatcher() {
+			public void afterTextChanged(android.text.Editable arg0) {
+				satisButton.setEnabled(false);
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before,
+					int count) {
+				// TODO Auto-generated method stub
+				
+			};
+		});
 		nakitCheckBox.setOnClickListener(new OnClickListener() {
 
 			@Override
