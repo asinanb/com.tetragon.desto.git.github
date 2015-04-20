@@ -131,7 +131,6 @@ public class SatisTamamlaFragment extends Fragment {
 
 		};
 		StokItemList stokItemList = satisItem.getStokItemList();
-		;
 		List<CloudEntity> stoklist2save = new ArrayList<CloudEntity>();
 		for (StokItem item : stokItemList) {
 			int kalan = item.getAdet() - item.getSatisAdet();
