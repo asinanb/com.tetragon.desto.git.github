@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/postLayoutView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/markaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Vestel"
+        android:textAppearance="@style/DarkText"
+        android:textColor="@color/dark_grey" />
+
+    <TextView
+        android:id="@+id/urunTipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/markaTextView"
+        android:singleLine="false"
+        android:text="Televizyon"
+        android:textAppearance="@style/DarkText" />
+
+    <TextView
+        android:id="@+id/modelTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/markaTextView"
+        android:layout_toLeftOf="@+id/adetLayout"
+        android:text="SMART 65VF7018 165SMART 65VF7018 165 EKRAN LED TV (65 inç)"
+        android:textAppearance="@style/BoldText"
+        android:textColor="@color/destoRed" />
+
+    <LinearLayout
+        android:id="@+id/adetLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:gravity="end|center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/stokYeriTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:maxHeight="30dp"
+            android:text="Mağaza1"
+            android:textAppearance="@style/DarkText" 
+            android:textColor="@color/destoBlue" />
+
+        <TextView
+            android:id="@+id/adetTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/stokYeriTextView"
+            android:gravity="end|center_vertical"
+            android:text="0"
+            android:textAppearance="@style/AdetText"
+            android:textColor="@color/destoBlue" />
+    </LinearLayout>
+
+</RelativeLayout>

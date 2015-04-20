@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/markaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:text="Vestel"
+        android:textAppearance="@style/SignatureText" />
+
+    <TextView
+        android:id="@+id/urunTipTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/markaTextView"
+        android:singleLine="false"
+        android:text="Televizyon"
+        android:textAppearance="@style/SignatureText" />
+
+    <TextView
+        android:id="@+id/modelTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/markaTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/adetTextView"
+        android:text="SMART 65VF7018 165SMART 65VF7018 165 EKRAN LED TV (65 inç)"
+        android:textAppearance="@style/PostText" />
+
+    <TextView
+        android:id="@+id/adetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/ic_delete"
+        android:gravity="right|center_vertical"
+        android:text="0"
+        android:textAppearance="@style/AdetText"
+        android:textColor="@color/red" />
+	
+	<TextView
+        android:id="@+id/gelenAdetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adetTextView"
+        android:layout_toLeftOf="@+id/ic_delete"
+        android:gravity="right|center_vertical"
+        android:text="0"
+        android:textAppearance="@style/AdetText"
+        android:textColor="@color/blue" />
+   
+	<ImageView
+        android:id="@+id/ic_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:src="@drawable/ic_delete" />
+
+</RelativeLayout>

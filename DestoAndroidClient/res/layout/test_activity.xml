@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".StokFragment" >
+
+    <TextView
+		android:id="@+id/text1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="For more info drag the button..." />
+    
+    <SlidingDrawer
+        android:id="@+id/slidingDrawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:content="@+id/content"
+        android:handle="@+id/handle"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/handle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_collapse" />
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <TextView
+		        android:id="@+id/text2"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Hello from JCG!" />
+            
+            <Button 
+                android:id="@+id/click"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Click me" />
+
+            <ExpandableListView
+                android:id="@+id/expandableListView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+            </ExpandableListView>
+
+        </LinearLayout>
+    </SlidingDrawer>
+
+</RelativeLayout>

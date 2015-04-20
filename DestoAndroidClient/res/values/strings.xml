@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Desto</string>
+    <string name="skip_intro">Skip intro next time</string>
+    <string name="announce_success">YOU HAVE JOINED</string>
+    <string name="announce_fail">CONNECTION FAILED</string>
+    <string name="empty_string"></string>
+    <string name="no_messages">No messages yet</string>
+    <string name="save_button">saveButton</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_desto">Desto</string>
+    <string name="title_db">Veritabanı İşlemleri</string>
+    <string name="title_marka">Marka Bilgileri</string>
+    <string name="title_marka_list">Marka Listesi</string>
+    <string name="title_Urungrubu_list">Ürün Grupları</string>
+    <string name="title_Urun_list">Ürünler</string>
+    <string name="title_Model_list">Modeller</string>
+    <string name="title_urungrubu_list">UrungrubuListActivity</string>
+    <string name="title_siparis_list">Sipariş Listesi</string>
+    <string name="title_activity_desto">DestoActivity</string>
+    <string name="title_menu_db">Veri Tabanı</string>
+   
+    <string name="search_title">Ara</string>
+    <string name="search_hint">Ara</string>
+    <string name="title_activity_main">Satış Stok Depo Envanter</string>
+    <string name="urunTip">"Ürün Çeşidi "</string>
+    <string name="marka">Marka</string>
+    <string name="urunModeli">Ürün Modeli</string>
+    <string name="kaydet">Kaydet</string>
+    <string name="vazgec">Vazgeç</string>
+    <string name="title_depomenu">Depo İşlemleri</string>
+    <string name="action_search">AraSB</string>
+    <string name="action_location_found">Konum</string>
+    <string name="action_refresh">Yenile</string>
+    <string name="action_help">Yardım</string>
+    <string name="action_check_updates">Güncelleme</string>
+    <string name="fiyat">Fiyat</string>
+     <string name="satisTitle">Satış</string>
+     <string name="sat_yap">Satışı Yap</string>
+
+</resources>

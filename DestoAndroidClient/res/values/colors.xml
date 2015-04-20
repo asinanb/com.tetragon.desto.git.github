@@ -1,0 +1,21 @@
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="light_grey">#acacac</color>
+    <color name="medium_grey">#333333</color>
+    <color name="dark_grey">#212121</color>
+    <color name="blue">#33b4e5</color>
+    <color name="yellow">#ffbb33</color>
+    <color name="offwhite">#eeeeee</color>
+    <color name="purple">#660066</color>
+    <color name="red">#cd0000</color>
+    <color name="layoutColorLight">#c9e7f3</color>
+    <color name="layoutColorMedium">#8aa3c8</color>
+    <color name="limeGreen">#32cd32</color>
+    <color name="destoBlue">#5B94C5</color>
+    <color name="destoPink">#e5c3c6</color>
+    <color name="destoGreen">#e1e9b7</color>
+    <color name="destoRed">#f96161</color>
+    <color name="destoLightBlue">#bcd2d0</color>
+    <color name="destoBeige">#d0b783</color>
+</resources>

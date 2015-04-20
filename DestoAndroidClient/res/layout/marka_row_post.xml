@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/postlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/ic_delete"
+        android:orientation="horizontal"
+        android:weightSum="4" >
+
+        <ImageView
+            android:id="@+id/ic_marka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_marka" />
+
+        <LinearLayout
+            android:id="@+id/marka_info"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/markaTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/PostText" />
+
+            <TextView
+                android:id="@+id/firmaTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:textAppearance="@style/SignatureText" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ic_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true" 
+        android:layout_gravity="right"
+        android:src="@drawable/ic_delete" />
+
+</RelativeLayout>
