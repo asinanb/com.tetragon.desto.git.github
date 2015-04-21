@@ -1,5 +1,6 @@
 package com.tetragon.desto;
 
+import com.tetragon.desto.util.DestoApplication;
 import com.tetragon.desto.util.DestoConstants;
 
 import android.app.Fragment;
@@ -47,6 +48,8 @@ public class DestoFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.satisView) {
+			((DestoApplication) getActivity().getApplication())
+			.setSatisTamamlandi(false);
 			Intent intent = new Intent(getActivity(), ListActivity.class);
 			intent.putExtra("TAG", DestoConstants.SATIS);
 			startActivity(intent);  

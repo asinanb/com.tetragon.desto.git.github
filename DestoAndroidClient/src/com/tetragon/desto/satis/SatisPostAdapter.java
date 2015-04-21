@@ -49,81 +49,88 @@ public class SatisPostAdapter extends ArrayAdapter<StokItem> {
 		View rowView = convertView;
 		final ViewHolder viewHolder;
 		final StokItem stokItem = getItem(position);
-		if (stokItem != null) {
-			if (stokItem.getAdet() < 1)
-				remove(stokItem);
-			// reuse views
-			if (rowView == null) {
-				rowView = mInflater.inflate(R.layout.satis_post, parent, false);
-				viewHolder = new ViewHolder();
 
-				viewHolder.markaTextView = (TextView) rowView
-						.findViewById(R.id.markaTextView);
+		// reuse views
+		if (rowView == null) {
+			rowView = mInflater.inflate(R.layout.satis_post, parent, false);
+			viewHolder = new ViewHolder();
 
-				viewHolder.urunTipTextView = (TextView) rowView
-						.findViewById(R.id.urunTipTextView);
+			viewHolder.markaTextView = (TextView) rowView
+					.findViewById(R.id.markaTextView);
 
-				viewHolder.modelTextView = (TextView) rowView
-						.findViewById(R.id.modelTextView);
+			viewHolder.urunTipTextView = (TextView) rowView
+					.findViewById(R.id.urunTipTextView);
 
-				viewHolder.stokAdetTextView = (TextView) rowView
-						.findViewById(R.id.stokAdetTextView);
+			viewHolder.modelTextView = (TextView) rowView
+					.findViewById(R.id.modelTextView);
 
-				viewHolder.fiyatTextView = (TextView) rowView
-						.findViewById(R.id.fiyatTextView);
-				viewHolder.checkBox = (CheckBox) rowView
-						.findViewById(R.id.checkBox);
-				if (viewHolder.checkBox != null)
-					viewHolder.checkBox.setChecked(stokItem.isSelected());
-				rowView.setTag(viewHolder);
-			} else
-				viewHolder = (ViewHolder) convertView.getTag();
+			viewHolder.stokAdetTextView = (TextView) rowView
+					.findViewById(R.id.stokAdetTextView);
 
-			viewHolder.checkBox.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					if (viewHolder.checkBox.isChecked()) {
-						DbObjects.getSelectedStokList().add(stokItem);
-						stokItem.setSelected(true);
-					} else {
-						DbObjects.getSelectedStokList().remove(stokItem);
-						stokItem.setSelected(false);
-					}
-					getListActivity().getStokEventHandler().fireStokChanged();
-				}
-
-			});
-
-			if ((viewHolder.modelTextView != null)
-					&& (stokItem.getModelItem() != null)) {
-				viewHolder.modelTextView
-						.setText(stokItem.getModelItem().getModel());
-			}
-
-			ModelItem model = stokItem.getModelItem();
-
-			if ((viewHolder.markaTextView != null)
-					&& (model.getMarkaItem() != null)) {
-				viewHolder.markaTextView.setText(model.getMarkaItem().getMarka());
-			}
-			if ((viewHolder.urunTipTextView != null)
-					&& (model.getUrun_tipItem() != null)) {
-				viewHolder.urunTipTextView.setText(" "
-						+ model.getUrun_tipItem().getUrun_tip());
-			}
-			if (viewHolder.stokAdetTextView != null){
-				viewHolder.stokAdetTextView
-						.setText(stokItem.getAdet() + " Ad.");
-			}
-			if ((viewHolder.fiyatTextView != null)
-					&& (model.getListeFiyati() != null)) {
-				if (model.getListeFiyati().isEmpty())
-					viewHolder.fiyatTextView.setText(" ");
-				else
-					viewHolder.fiyatTextView.setText(model.getListeFiyati() + " TL");
-			}
+			viewHolder.fiyatTextView = (TextView) rowView
+					.findViewById(R.id.fiyatTextView);
+			viewHolder.checkBox = (CheckBox) rowView
+					.findViewById(R.id.checkBox);
 			if (viewHolder.checkBox != null)
 				viewHolder.checkBox.setChecked(stokItem.isSelected());
+			rowView.setTag(viewHolder);
+		} else
+			viewHolder = (ViewHolder) convertView.getTag();
+
+		if (stokItem != null) {
+			//stokta sifira dusenleri gosterme
+			if (stokItem.getAdet() < 1)
+				remove(stokItem);
+			else{
+				viewHolder.checkBox.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						if (viewHolder.checkBox.isChecked()) {
+							DbObjects.getSelectedStokList().add(stokItem);
+							stokItem.setSelected(true);
+						} else {
+							DbObjects.getSelectedStokList().remove(stokItem);
+							stokItem.setSelected(false);
+						}
+						getListActivity().getStokEventHandler().fireStokChanged();
+					}
+
+				});
+
+				if ((viewHolder.modelTextView != null)
+						&& (stokItem.getModelItem() != null)) {
+					viewHolder.modelTextView.setText(stokItem.getModelItem()
+							.getModel());
+				}
+
+				ModelItem model = stokItem.getModelItem();
+
+				if ((viewHolder.markaTextView != null)
+						&& (model.getMarkaItem() != null)) {
+					viewHolder.markaTextView.setText(model.getMarkaItem()
+							.getMarka());
+				}
+				if ((viewHolder.urunTipTextView != null)
+						&& (model.getUrun_tipItem() != null)) {
+					viewHolder.urunTipTextView.setText(" "
+							+ model.getUrun_tipItem().getUrun_tip());
+				}
+				if (viewHolder.stokAdetTextView != null) {
+					viewHolder.stokAdetTextView
+							.setText(stokItem.getAdet() + " Ad.");
+				}
+				if ((viewHolder.fiyatTextView != null)
+						&& (model.getListeFiyati() != null)) {
+					if (model.getListeFiyati().isEmpty())
+						viewHolder.fiyatTextView.setText(" ");
+					else
+						viewHolder.fiyatTextView.setText(model.getListeFiyati()
+								+ " TL");
+				}
+				if (viewHolder.checkBox != null)
+					viewHolder.checkBox.setChecked(stokItem.isSelected());
+			}
+			
 		}
 
 		return rowView;

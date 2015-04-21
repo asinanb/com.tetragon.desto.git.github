@@ -35,19 +35,18 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 		DataListener {
 
 	private ListView stokListView;
-	private StokItemList stokItemList = DbObjects.getStokItemList();
+	private StokItemList stokItemList=DbObjects.getStokItemList();
 	private SatisItem satisItem;
 
 	private StokItemList suggestionList = new StokItemList();
 	private boolean suggestion = false;
-	private boolean satisTamam=false;
 	private ImageView satisImg;
 
 	private ProgressBar progressBar;
 
 	public SatisListFragment() {
 		stokItemList = DbObjects.getStokItemList();
-		setSatisTamam(false);
+		stokItemList=stokItemList.removeNonExisting();
 	}
 
 	@Override
@@ -66,7 +65,8 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		stokItemList=DbObjects.getStokItemList();
+		stokItemList = DbObjects.getStokItemList();
+		stokItemList=stokItemList.removeNonExisting();
 		stokItemList.setSelectedAll(false);
 		DbObjects.getSelectedStokList().clear();
 		// Set view
@@ -94,12 +94,12 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 		Intent intent = new Intent(getActivity(), SubMenuActivity.class);
 		intent.putExtra("TAG", DestoConstants.SATISISLEMI);
 		startActivity(intent);
-		setSatisTamam(true);
 	}
 
 	private void updateStokList() {
 		suggestion = false;
 		stokItemList = DbObjects.getStokItemList();
+		stokItemList=stokItemList.removeNonExisting();
 		if (!stokItemList.isEmpty()) {
 			stokListView.setVisibility(View.VISIBLE);
 			stokListView.setAdapter(new SatisPostAdapter(getActivity(),
@@ -174,14 +174,6 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 
 	}
 
-	public boolean isSatisTamam() {
-		return satisTamam;
-	}
-
-	public void setSatisTamam(boolean satisTamam) {
-		this.satisTamam = satisTamam;
-	}
-
 	private void loadSuggestions(String query, SearchView searchView) {
 		suggestionList = new StokItemList();
 		for (StokItem stok : stokItemList) {
@@ -199,7 +191,9 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 			updateStokList(suggestionList);
 		else
 			updateStokList();
-		satisItem = DbObjects.createSatisItem(DbObjects.getSelectedStokList());
+		StokItemList list= DbObjects.getSelectedStokList();
+		list=list.removeNonExisting();
+		satisItem = DbObjects.createSatisItem(list);
 		
 		if (satisItem.getStokItemList().isEmpty()){
 			if(satisImg!=null)

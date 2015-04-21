@@ -61,6 +61,16 @@ public class StokItemList extends ArrayList<StokItem> {
 		
 	}
 	
+	public StokItemList removeNonExisting (){
+		StokItemList list= getStokItemList();
+		StokItemList newlist= new StokItemList();
+		for (StokItem item : list) {
+			if (item.getAdet()>0)
+				newlist.add(item);
+		}
+		return newlist;
+		
+	}
 	public void addOrUpdate(StokItem stokItem){
 		if (indexOf(stokItem)<0)
 			add (stokItem);
