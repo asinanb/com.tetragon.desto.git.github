@@ -19,6 +19,7 @@ import com.tetragon.desto.model.Siparis;
 import com.tetragon.desto.model.SiparisList;
 import com.tetragon.desto.model.Siparis_ayrinti;
 import com.tetragon.desto.model.Siparis_ayrintiList;
+import com.tetragon.desto.model.Stok;
 import com.tetragon.desto.model.StokItem;
 import com.tetragon.desto.model.StokItemList;
 import com.tetragon.desto.model.Stok_yeri;
@@ -27,6 +28,7 @@ import com.tetragon.desto.model.Urun_tipItem;
 import com.tetragon.desto.model.Urun_tipItemList;
 import com.tetragon.desto.model.UrungrubuItem;
 import com.tetragon.desto.model.UrungrubuItemList;
+import com.tetragon.desto.util.DestoUtil;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -126,8 +128,12 @@ public class DbObjects extends CloudBackendAsync {
 	public StokItemList createStokItemList(List<CloudEntity> results) {
 		StokItemList list = new StokItemList();
 		for (CloudEntity stok : results) {
-			StokItem stokItem = new StokItem((CloudEntity) stok);
-			list.add(stokItem);
+			String adet=stok.get(Stok.PROP_ADET).toString();
+			if ((adet!=null)&&(!adet.isEmpty()&&(DestoUtil.stringToInt(adet)>0))){
+				StokItem stokItem = new StokItem((CloudEntity) stok);
+				list.add(stokItem);
+			}
+			
 		}
 		return list;
 	}

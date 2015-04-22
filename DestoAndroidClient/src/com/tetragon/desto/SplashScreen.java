@@ -31,9 +31,11 @@ import com.tetragon.desto.model.Musteri;
 import com.tetragon.desto.model.Siparis;
 import com.tetragon.desto.model.Siparis_ayrinti;
 import com.tetragon.desto.model.Stok;
+import com.tetragon.desto.model.StokItemList;
 import com.tetragon.desto.model.Stok_yeri;
 import com.tetragon.desto.model.Urun_tip;
 import com.tetragon.desto.model.Urungrubu;
+import com.tetragon.desto.util.DestoApplication;
 
 public class SplashScreen extends Activity {
 
@@ -342,7 +344,10 @@ public class SplashScreen extends Activity {
 		final CloudCallbackHandler<List<CloudEntity>> handler = new CloudCallbackHandler<List<CloudEntity>>() {
 			@Override
 			public void onComplete(List<CloudEntity> results) {
+				StokItemList stokItemList=dbObjects.createStokItemList(results);
+				((DestoApplication) getApplication()).setStokItemList(stokItemList);
 				DbObjects.setStokItemList(dbObjects.createStokItemList(results));
+				
 				newSplashProgressBar.setProgress(100);
 				// Start your app main activity
 				Intent i = new Intent(SplashScreen.this, MainActivity.class);

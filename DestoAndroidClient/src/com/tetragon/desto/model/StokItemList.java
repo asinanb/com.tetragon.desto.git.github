@@ -61,20 +61,28 @@ public class StokItemList extends ArrayList<StokItem> {
 		
 	}
 	
-	public StokItemList removeNonExisting (){
-		StokItemList list= getStokItemList();
-		StokItemList newlist= new StokItemList();
-		for (StokItem item : list) {
-			if (item.getAdet()>0)
-				newlist.add(item);
-		}
-		return newlist;
-		
-	}
 	public void addOrUpdate(StokItem stokItem){
 		if (indexOf(stokItem)<0)
 			add (stokItem);
-		else 
-			set(indexOf(stokItem),stokItem);
+		else{
+			if (stokItem.getAdet()==0)
+				remove(stokItem);
+			else
+				set(indexOf(stokItem),stokItem);
+		}
+			
+	}
+	
+	public void addOrUpdate(StokItemList stokItemList) {
+		for (StokItem stokItem : stokItemList) {
+			if (indexOf(stokItem)<0)
+				add (stokItem);
+			else{
+				if (stokItem.getAdet()==0)
+					remove(stokItem);
+				else
+					set(indexOf(stokItem),stokItem);
+			}
+		}
 	}
 }

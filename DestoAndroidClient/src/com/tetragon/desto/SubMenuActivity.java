@@ -1,6 +1,7 @@
 package com.tetragon.desto;
 
 import com.tetragon.desto.eventHandler.SatisItemEventHandler;
+import com.tetragon.desto.eventHandler.StokEventHandler;
 import com.tetragon.desto.satis.SatisIslemiFragment;
 import com.tetragon.desto.satis.SatisTamamlaFragment;
 import com.tetragon.desto.util.DestoConstants;
@@ -17,6 +18,7 @@ import android.widget.FrameLayout;
 public class SubMenuActivity extends FragmentActivity {
 
 	private SatisItemEventHandler satisEventHandler = new SatisItemEventHandler();
+	private StokEventHandler stokEventHandler = new StokEventHandler();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,14 @@ public class SubMenuActivity extends FragmentActivity {
 
 	public void setSatisEventHandler(SatisItemEventHandler satisEventHandler) {
 		this.satisEventHandler = satisEventHandler;
+	}
+
+	public StokEventHandler getStokEventHandler() {
+		return stokEventHandler;
+	}
+
+	public void setStokEventHandler(StokEventHandler stokEventHandler) {
+		this.stokEventHandler = stokEventHandler;
 	}
 
 	

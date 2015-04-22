@@ -9,6 +9,7 @@ import com.google.cloud.backend.core.CloudEntity;
 import com.google.cloud.backend.core.DbObjects;
 import com.tetragon.desto.ListActivity;
 import com.tetragon.desto.R;
+import com.tetragon.desto.SubMenuActivity;
 import com.tetragon.desto.model.Satis;
 import com.tetragon.desto.model.SatisItem;
 import com.tetragon.desto.model.Stok;
@@ -68,6 +69,7 @@ public class SatisTamamlaFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		// Set view
 		View view = inflater.inflate(R.layout.satis_tamamla, container, false);
 		satisItem = DbObjects.getSatisItem();
@@ -107,6 +109,8 @@ public class SatisTamamlaFragment extends Fragment {
 	private void stoktanEksilt() {
 
 		final DbObjects dbObjects = new DbObjects(getActivity());
+		final StokItemList newStokItemList= new StokItemList();
+		final List<CloudEntity> stoklist2save = new ArrayList<CloudEntity>();
 		CloudCallbackHandler<List<CloudEntity>> mhandler = new CloudCallbackHandler<List<CloudEntity>>() {
 
 			@Override
@@ -116,6 +120,8 @@ public class SatisTamamlaFragment extends Fragment {
 								+ " kaydedildi.",
 								DestoConstants.TOAST_MESSAGE_SHOWTIME);
 				toast.show();
+				DbObjects.getStokItemList().addOrUpdate(newStokItemList);
+				((SubMenuActivity) getActivity()).getStokEventHandler().fireStokChanged();
 				satisTablosunaYaz();
 
 			}
@@ -130,8 +136,9 @@ public class SatisTamamlaFragment extends Fragment {
 			}
 
 		};
+		
+		
 		StokItemList stokItemList = satisItem.getStokItemList();
-		List<CloudEntity> stoklist2save = new ArrayList<CloudEntity>();
 		for (StokItem item : stokItemList) {
 			int kalan = item.getAdet() - item.getSatisAdet();
 			if (kalan < 0) {
@@ -141,6 +148,7 @@ public class SatisTamamlaFragment extends Fragment {
 			} else if (kalan > 0) {
 				item.setAdet(kalan);
 			}
+			newStokItemList.add(item);
 			stoklist2save.add(item.getStokCE());
 		}
 		dbObjects.updateAll(stoklist2save, mhandler);

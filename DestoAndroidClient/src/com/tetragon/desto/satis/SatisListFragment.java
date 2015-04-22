@@ -46,7 +46,6 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 
 	public SatisListFragment() {
 		stokItemList = DbObjects.getStokItemList();
-		stokItemList=stokItemList.removeNonExisting();
 	}
 
 	@Override
@@ -66,7 +65,6 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		stokItemList = DbObjects.getStokItemList();
-		stokItemList=stokItemList.removeNonExisting();
 		stokItemList.setSelectedAll(false);
 		DbObjects.getSelectedStokList().clear();
 		// Set view
@@ -99,7 +97,6 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 	private void updateStokList() {
 		suggestion = false;
 		stokItemList = DbObjects.getStokItemList();
-		stokItemList=stokItemList.removeNonExisting();
 		if (!stokItemList.isEmpty()) {
 			stokListView.setVisibility(View.VISIBLE);
 			stokListView.setAdapter(new SatisPostAdapter(getActivity(),
@@ -192,7 +189,6 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 		else
 			updateStokList();
 		StokItemList list= DbObjects.getSelectedStokList();
-		list=list.removeNonExisting();
 		satisItem = DbObjects.createSatisItem(list);
 		
 		if (satisItem.getStokItemList().isEmpty()){
