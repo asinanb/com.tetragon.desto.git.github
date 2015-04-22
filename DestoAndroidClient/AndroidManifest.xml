@@ -21,7 +21,7 @@
      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.tetragon.desto.util.DestoApplication"
+        android:name="com.tetragon.desto.DestoApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_desto"
         android:label="@string/app_name"

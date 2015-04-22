@@ -1,6 +1,7 @@
 package com.tetragon.desto.satis;
 
 import com.google.cloud.backend.core.DbObjects;
+import com.tetragon.desto.DestoApplication;
 import com.tetragon.desto.R;
 import com.tetragon.desto.SubMenuActivity;
 import com.tetragon.desto.eventHandler.DataChangedEvent;
@@ -10,7 +11,6 @@ import com.tetragon.desto.model.StokItem;
 import com.tetragon.desto.model.StokItemList;
 import com.tetragon.desto.util.DestoConstants;
 import com.tetragon.desto.util.DestoUtil;
-import com.tetragon.desto.util.DestoApplication;
 import com.tetragon.desto.util.InputFilterMinMax;
 
 import android.app.Fragment;

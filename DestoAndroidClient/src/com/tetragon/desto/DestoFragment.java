@@ -1,6 +1,5 @@
 package com.tetragon.desto;
 
-import com.tetragon.desto.util.DestoApplication;
 import com.tetragon.desto.util.DestoConstants;
 
 import android.app.Fragment;

@@ -7,6 +7,7 @@ import java.util.List;
 import com.google.cloud.backend.core.CloudCallbackHandler;
 import com.google.cloud.backend.core.CloudEntity;
 import com.google.cloud.backend.core.DbObjects;
+import com.tetragon.desto.DestoApplication;
 import com.tetragon.desto.ListActivity;
 import com.tetragon.desto.R;
 import com.tetragon.desto.SubMenuActivity;
@@ -15,7 +16,6 @@ import com.tetragon.desto.model.SatisItem;
 import com.tetragon.desto.model.Stok;
 import com.tetragon.desto.model.StokItem;
 import com.tetragon.desto.model.StokItemList;
-import com.tetragon.desto.util.DestoApplication;
 import com.tetragon.desto.util.DestoConstants;
 import com.tetragon.desto.util.DestoUtil;
 
@@ -120,7 +120,7 @@ public class SatisTamamlaFragment extends Fragment {
 								+ " kaydedildi.",
 								DestoConstants.TOAST_MESSAGE_SHOWTIME);
 				toast.show();
-				DbObjects.getStokItemList().addOrUpdate(newStokItemList);
+				((DestoApplication) getActivity().getApplication()).getStokItemList().addOrUpdate(newStokItemList);;//DbObjects.getStokItemList().addOrUpdate(newStokItemList);
 				((SubMenuActivity) getActivity()).getStokEventHandler().fireStokChanged();
 				satisTablosunaYaz();
 

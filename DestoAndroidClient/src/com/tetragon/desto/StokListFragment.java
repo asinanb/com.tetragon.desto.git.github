@@ -2,7 +2,6 @@ package com.tetragon.desto;
 
 import java.util.List;
 
-import com.google.cloud.backend.core.DbObjects;
 import com.tetragon.desto.eventHandler.DataChangedEvent;
 import com.tetragon.desto.eventHandler.DataListener;
 import com.tetragon.desto.model.StokItem;
@@ -28,23 +27,19 @@ public class StokListFragment extends Fragment implements
 		DataListener {
 
 	private ListView stokListView;
-	private StokItemList stokItemList = DbObjects
-			.getStokItemList();
+	private StokItemList stokItemList;// = ((DestoApplication) getActivity().getApplication()).getStokItemList();//DbObjects.getStokItemList();
 
 	private StokItemList suggestionList = new StokItemList();
 	private boolean suggestion = false;
 
 	private ProgressBar progressBar;
 
-	public StokListFragment() {
-		stokItemList = DbObjects.getStokItemList();
-	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		stokItemList = ((DestoApplication) getActivity().getApplication()).getStokItemList();//DbObjects.getStokItemList();
 		// Set view
 		View view = inflater.inflate(R.layout.desto_list, container, false);
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
@@ -65,7 +60,7 @@ public class StokListFragment extends Fragment implements
 
 	private void updateStokList() {
 		suggestion = false;
-		stokItemList = DbObjects.getStokItemList();
+		stokItemList = ((DestoApplication) getActivity().getApplication()).getStokItemList();//DbObjects.getStokItemList();
 		if (!stokItemList.isEmpty()) {
 			stokListView.setVisibility(View.VISIBLE);
 			stokListView.setAdapter(new StokPostAdapter(

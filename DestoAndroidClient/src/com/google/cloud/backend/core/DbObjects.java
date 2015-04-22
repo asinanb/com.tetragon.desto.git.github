@@ -41,7 +41,7 @@ public class DbObjects extends CloudBackendAsync {
 	private static ModelItemList modelItemList = new ModelItemList();
 	private static SiparisList siparisList = new SiparisList();
 	private static Siparis_ayrintiList siparisAyrintiList = new Siparis_ayrintiList();
-	private static StokItemList stokItemList = new StokItemList();
+//	private static StokItemList stokItemList = new StokItemList();
 	private static Stok_yeriList stok_yeriList = new Stok_yeriList();
 	private static Kullanici_grubuList kullanici_grubuList = new Kullanici_grubuList();
 	private static KonumList konumList = new KonumList();
@@ -311,14 +311,14 @@ public class DbObjects extends CloudBackendAsync {
 		DbObjects.satisItem = satisItem;
 	}
 
-	public static StokItemList getStokItemList() {
-		return stokItemList;
-	}
-
-	public static void setStokItemList(StokItemList stokItemList) {
-		DbObjects.stokItemList = stokItemList;
-	}
-
+//	public static StokItemList getStokItemList() {
+//		return stokItemList;
+//	}
+//
+//	public static void setStokItemList(StokItemList stokItemList) {
+//		DbObjects.stokItemList = stokItemList;
+//	}
+//
 	public static UrungrubuItemList getUrungrubuItemList() {
 		return urungrubuItemList;
 	}

@@ -1,6 +1,7 @@
 package com.tetragon.desto.satis;
 
 import com.google.cloud.backend.core.DbObjects;
+import com.tetragon.desto.DestoApplication;
 import com.tetragon.desto.ListActivity;
 import com.tetragon.desto.R;
 import com.tetragon.desto.SubMenuActivity;
@@ -9,7 +10,6 @@ import com.tetragon.desto.eventHandler.DataListener;
 import com.tetragon.desto.model.SatisItem;
 import com.tetragon.desto.model.StokItem;
 import com.tetragon.desto.model.StokItemList;
-import com.tetragon.desto.util.DestoApplication;
 import com.tetragon.desto.util.DestoConstants;
 
 import android.app.Fragment;
@@ -35,7 +35,7 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 		DataListener {
 
 	private ListView stokListView;
-	private StokItemList stokItemList=DbObjects.getStokItemList();
+	private StokItemList stokItemList;
 	private SatisItem satisItem;
 
 	private StokItemList suggestionList = new StokItemList();
@@ -43,10 +43,6 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 	private ImageView satisImg;
 
 	private ProgressBar progressBar;
-
-	public SatisListFragment() {
-		stokItemList = DbObjects.getStokItemList();
-	}
 
 	@Override
 	public void onResume() {
@@ -64,7 +60,7 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		stokItemList = DbObjects.getStokItemList();
+		stokItemList = ((DestoApplication) getActivity().getApplication()).getStokItemList();
 		stokItemList.setSelectedAll(false);
 		DbObjects.getSelectedStokList().clear();
 		// Set view
@@ -96,7 +92,7 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 
 	private void updateStokList() {
 		suggestion = false;
-		stokItemList = DbObjects.getStokItemList();
+		stokItemList = ((DestoApplication) getActivity().getApplication()).getStokItemList();// DbObjects.getStokItemList();
 		if (!stokItemList.isEmpty()) {
 			stokListView.setVisibility(View.VISIBLE);
 			stokListView.setAdapter(new SatisPostAdapter(getActivity(),
