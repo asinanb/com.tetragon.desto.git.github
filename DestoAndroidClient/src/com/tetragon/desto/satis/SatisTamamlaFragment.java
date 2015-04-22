@@ -120,7 +120,7 @@ public class SatisTamamlaFragment extends Fragment {
 								+ " kaydedildi.",
 								DestoConstants.TOAST_MESSAGE_SHOWTIME);
 				toast.show();
-				((DestoApplication) getActivity().getApplication()).getStokItemList().addOrUpdate(newStokItemList);;//DbObjects.getStokItemList().addOrUpdate(newStokItemList);
+				DbObjects.getStokItemList().addOrUpdate(newStokItemList);
 				((SubMenuActivity) getActivity()).getStokEventHandler().fireStokChanged();
 				satisTablosunaYaz();
 

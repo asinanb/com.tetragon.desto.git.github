@@ -60,7 +60,7 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		stokItemList = ((DestoApplication) getActivity().getApplication()).getStokItemList();
+		stokItemList = DbObjects.getStokItemList();
 		stokItemList.setSelectedAll(false);
 		DbObjects.getSelectedStokList().clear();
 		// Set view
@@ -92,7 +92,7 @@ public class SatisListFragment extends Fragment implements OnItemClickListener,
 
 	private void updateStokList() {
 		suggestion = false;
-		stokItemList = ((DestoApplication) getActivity().getApplication()).getStokItemList();// DbObjects.getStokItemList();
+		stokItemList = DbObjects.getStokItemList();
 		if (!stokItemList.isEmpty()) {
 			stokListView.setVisibility(View.VISIBLE);
 			stokListView.setAdapter(new SatisPostAdapter(getActivity(),

@@ -294,7 +294,7 @@ public class SiparistenDepoyaPostAdapter extends ArrayAdapter<Siparis_ayrinti> {
 				toast.show();
 
 				String idkey=(String) result.get(Stok.PROP_IDKEY);
-				StokItemList list=((DestoApplication) getListActivity().getApplication()).getStokItemList();
+				StokItemList list=DbObjects.getStokItemList();
 				StokItem stokToSave = list.findStokByIdkey(idkey);//DbObjects.getStokItemList().findStokByIdkey(idkey);//
 				//bu stokItem ilk defa giriliyorsa, stoklistesinde bulunmaz, nullolur 
 				if (stokToSave==null)
@@ -308,7 +308,7 @@ public class SiparistenDepoyaPostAdapter extends ArrayAdapter<Siparis_ayrinti> {
 		};
 
 		dlgProgressBar.setVisibility(View.VISIBLE);
-		StokItemList stokList = ((DestoApplication) getListActivity().getApplication()).getStokItemList();//DbObjects.getStokItemList();
+		StokItemList stokList = DbObjects.getStokItemList();
 		Stok_yeri stok_yeri = (Stok_yeri) stok_yeriSpinner.getSelectedItem();
 
 		if (!stokList.isEmpty()) {

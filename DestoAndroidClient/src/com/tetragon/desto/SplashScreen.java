@@ -344,7 +344,7 @@ public class SplashScreen extends Activity {
 			@Override
 			public void onComplete(List<CloudEntity> results) {
 				StokItemList stokItemList=dbObjects.createStokItemList(results);
-				((DestoApplication) getApplication()).setStokItemList(stokItemList);
+				DbObjects.setStokItemList(stokItemList);
 				
 				newSplashProgressBar.setProgress(100);
 				// Start your app main activity

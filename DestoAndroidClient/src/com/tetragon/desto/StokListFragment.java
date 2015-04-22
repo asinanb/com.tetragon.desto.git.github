@@ -2,6 +2,7 @@ package com.tetragon.desto;
 
 import java.util.List;
 
+import com.google.cloud.backend.core.DbObjects;
 import com.tetragon.desto.eventHandler.DataChangedEvent;
 import com.tetragon.desto.eventHandler.DataListener;
 import com.tetragon.desto.model.StokItem;
@@ -39,7 +40,7 @@ public class StokListFragment extends Fragment implements
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		stokItemList = ((DestoApplication) getActivity().getApplication()).getStokItemList();//DbObjects.getStokItemList();
+		stokItemList = DbObjects.getStokItemList();
 		// Set view
 		View view = inflater.inflate(R.layout.desto_list, container, false);
 		progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
@@ -60,7 +61,7 @@ public class StokListFragment extends Fragment implements
 
 	private void updateStokList() {
 		suggestion = false;
-		stokItemList = ((DestoApplication) getActivity().getApplication()).getStokItemList();//DbObjects.getStokItemList();
+		stokItemList = DbObjects.getStokItemList();
 		if (!stokItemList.isEmpty()) {
 			stokListView.setVisibility(View.VISIBLE);
 			stokListView.setAdapter(new StokPostAdapter(
